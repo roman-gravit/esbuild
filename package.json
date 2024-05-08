@@ -1,0 +1,15 @@
+{
+  "name": "esbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild ./src/index.js --bundle --outdir=build "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.21.1"
+  }
+}
