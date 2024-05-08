@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"outDir": "./build",
+		"noImplicitAny": true,
+		"module": "ESNext",
+		"target": "ES6",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		// must be set for esbuild
+		"isolatedModules": true
+	},	
+	"ts-node": {
+		"compilerOptions": {
+		  "module": "CommonJS"
+		}
+	}
+
+}

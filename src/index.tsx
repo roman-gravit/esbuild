@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App";
 import "./second.css";
 
-const root = document.getElementById('root');
+const root = document.getElementById('root') as HTMLElement;
 
 const container = createRoot(root);
 
