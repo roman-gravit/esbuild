@@ -2,6 +2,8 @@ export { config };
 
 import { BuildOptions } from "esbuild";
 import path from "path";
+import { CleanPlugin } from "./plugins/clean-plugin";
+import { HTMLPlugin } from "./plugins/HTMLPlugin";
 
 const mode = process.env.MODE || "development";
 
@@ -29,12 +31,32 @@ const config: BuildOptions = {
 	// loads all other aspects of the code that it represents.
 	entryPoints: [  _PathResolve("src", "index.jsx") ],
 
-	entryNames: "bundle",
+	entryNames: "[dir]/bundle [name]-[hash]",
+
+	allowOverwrite: true,
 
 	// This option sets the output directory for the build operation. 
 	outdir: _PathResolve("out"),
 
 	sourcemap: isDevMode ? "linked" : false,
 
-	tsconfig: _PathResolve("tsconfig.json")
+	tsconfig: _PathResolve("tsconfig.json"),
+
+	loader: {
+		".png": "file",
+		".svg": "file",
+		".jpg": "file"
+	},
+
+	metafile: true,
+
+	plugins: [
+		CleanPlugin, 
+		HTMLPlugin({
+			title: "ESBuild",
+			jsPath: ["index.js"],
+			cssPath: ["index.css"]
+		})
+	]
+
 }
